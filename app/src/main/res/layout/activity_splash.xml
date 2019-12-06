@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/test"
+    android:layout_height="match_parent">
+
+<!--    <ImageView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:adjustViewBounds="true"-->
+<!--        android:src="@drawable/java"-->
+<!--        android:scaleX=".5"-->
+<!--        android:visibility="gone"-->
+<!--        android:scaleType="fitXY"-->
+<!--        android:scaleY=".5"-->
+<!--        />-->
+<!--    <ImageView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:adjustViewBounds="true"-->
+<!--        android:src="@drawable/wifi"-->
+<!--        android:scaleX=".6"-->
+<!--        android:visibility="gone"-->
+<!--        android:scaleType="fitXY"-->
+<!--        android:scaleY=".5"-->
+<!--        />-->
+</RelativeLayout>
