@@ -9,6 +9,7 @@ import com.example.kokabkhanum.domain.usecase.SplashUsecase;
 import com.example.kokabkhanum.local.DaoCategory;
 import com.example.kokabkhanum.local.DataBaseRepository;
 import com.example.kokabkhanum.local.Entity.Category;
+import com.example.kokabkhanum.local.Entity.Posts;
 import com.example.kokabkhanum.local.RoomDataBase;
 import com.example.kokabkhanum.remote.entity.SplashRemote;
 import com.example.kokabkhanum.remote.SplashServices;
@@ -37,7 +38,7 @@ public class SplashActivityModule {
 
     @Singleton
     @Provides
-    static SplashRepository ProvidesSplashRepository(SplashRemote splashRemote,DataBaseRepository dataBaseRepository) {
+    static SplashRepository ProvidesSplashRepository(SplashRemote splashRemote, DataBaseRepository dataBaseRepository) {
         return new SplashRepositoryImpl(splashRemote, dataBaseRepository);
     }
 
@@ -49,7 +50,7 @@ public class SplashActivityModule {
 
     @Singleton
     @Provides
-    static DaoCategory ProvidesDaoCategory( RoomDataBase roomDataBase) {
+    static DaoCategory ProvidesDaoCategory(RoomDataBase roomDataBase) {
         return roomDataBase.daoCategory();
     }
 
@@ -59,15 +60,22 @@ public class SplashActivityModule {
         return new Category();
     }
 
+    @Singleton
+    @Provides
+    static Posts ProvidesPosts() {
+        return new Posts();
+    }
+
 
     @Singleton
     @Provides
-    static DataBaseRepository ProvidesDataBaseRepository(DaoCategory daoCategory,Category category) {
-        return new DataBaseRepository(daoCategory,category);
+    static DataBaseRepository ProvidesDataBaseRepository(DaoCategory daoCategory, Category category, Posts posts) {
+        return new DataBaseRepository(daoCategory, category, posts);
     }
+
     @Singleton
     @Provides
-    static Handler ProvideSplashToCat(){
+    static Handler ProvideSplashToCat() {
         return new android.os.Handler();
 
 

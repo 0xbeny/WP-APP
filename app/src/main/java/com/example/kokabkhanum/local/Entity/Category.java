@@ -1,12 +1,14 @@
 package com.example.kokabkhanum.local.Entity;
 
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Fts4;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Fts4
+@Entity(tableName = "Category")
 public class Category {
     @ColumnInfo(name = "id")
     @PrimaryKey(autoGenerate = true)
@@ -19,10 +21,14 @@ public class Category {
     private int count;
     @ColumnInfo(name = "description")
     private String description;
+    @ColumnInfo(name = "href")
+    private String href;
+
+
 
 
     public Category(int catID, String name, int count, String description, String href) {
-        CatID = catID;
+        this.CatID = catID;
         this.name = name;
         this.count = count;
         this.description = description;
@@ -53,9 +59,6 @@ public class Category {
         this.href = href;
     }
 
-    @ColumnInfo(name = "href")
-    private String href;
-
     public int getId() {
         return id;
     }
@@ -81,7 +84,7 @@ public class Category {
     }
 
     @Ignore
-    public Category(@NonNull String name) {
+    public Category( String name) {
 
         this.name = name;
     }

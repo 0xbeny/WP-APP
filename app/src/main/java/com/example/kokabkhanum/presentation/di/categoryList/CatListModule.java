@@ -3,10 +3,8 @@ package com.example.kokabkhanum.presentation.di.categoryList;
 import com.example.kokabkhanum.data.CatListRepositoryImpl;
 import com.example.kokabkhanum.domain.repository.CatListRepository;
 import com.example.kokabkhanum.domain.usecase.CatListUseCase;
-import com.example.kokabkhanum.local.DaoCategory;
 import com.example.kokabkhanum.local.DataBaseRepository;
-import com.example.kokabkhanum.local.Entity.Category;
-import com.example.kokabkhanum.presentation.ui.CategoryList.adapter.CategoryRecyclerView;
+import com.example.kokabkhanum.presentation.ui.CategoryList.adapter.CategoryRecyclerAdapter;
 
 import javax.inject.Singleton;
 
@@ -34,8 +32,8 @@ public class CatListModule {
         return new CatListUseCase(catListRepository);
     }
     @Provides
-    static CategoryRecyclerView categoryRecyclerView(){
-        return new CategoryRecyclerView();
+    static CategoryRecyclerAdapter categoryRecyclerView(){
+        return new CategoryRecyclerAdapter();
     }
 
 

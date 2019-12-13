@@ -3,11 +3,15 @@ package com.example.kokabkhanum.data;
 import com.example.kokabkhanum.domain.repository.SplashRepository;
 import com.example.kokabkhanum.local.DataBaseRepository;
 import com.example.kokabkhanum.local.Entity.Category;
+import com.example.kokabkhanum.local.Entity.Posts;
 import com.example.kokabkhanum.remote.entity.SplashRemote;
-import com.example.kokabkhanum.remote.entity.models.Categories;
+import com.example.kokabkhanum.remote.entity.models.Category.Categories;
+
+
 import java.util.List;
 import javax.inject.Inject;
 
+import io.reactivex.Flowable;
 import io.reactivex.Single;
 
 public class SplashRepositoryImpl implements SplashRepository {
@@ -31,12 +35,27 @@ public class SplashRepositoryImpl implements SplashRepository {
     }
 
     @Override
+    public Single<List<com.example.kokabkhanum.remote.entity.models.posts.Posts>> AllPosts(long category) {
+        return splashRemote.getAllPost(category);
+    }
+
+    @Override
     public long InsertCategories(Category category) {
-       return dataBaseRepository.insert(category);
+       return dataBaseRepository.insertCategory(category);
+//        new InsertCategoriesAsyncTask(dataBaseRepository).execute(category);
+
+    }
+    @Override
+    public long InsertPosts(Posts posts) {
+        return dataBaseRepository.insertPosts(posts);
 //        new InsertCategoriesAsyncTask(dataBaseRepository).execute(category);
 
     }
 
+    @Override
+    public Flowable<List<Category>> checkExistence(Boolean isExist) {
+        return dataBaseRepository.getCatName();
+    }
 
 
 }

@@ -31,6 +31,7 @@ public class SplashActivity extends DaggerAppCompatActivity {
         splashViewModel = ViewModelProviders.of(this, viewModelProviderFactory).get(SplashViewModel.class);
         //get All Categories from retrofit && Insert Data From Retrofit to Room Database :)
         splashViewModel.CategoryRequestAndInsert();
+        splashViewModel.GetAllPostsANDInsert(8);
         handler.postDelayed(() -> {
             Intent intent = new Intent(this, CategoryListActivity.class);
             startActivity(intent);

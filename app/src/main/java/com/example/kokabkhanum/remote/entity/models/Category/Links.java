@@ -1,4 +1,4 @@
-package com.example.kokabkhanum.remote.entity.models;
+package com.example.kokabkhanum.remote.entity.models.Category;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -12,7 +12,7 @@ public class Links {
     private List<Self> self = null;
     @SerializedName("collection")
     @Expose
-    private List<com.example.kokabkhanum.remote.entity.models.Collection> collection = null;
+    private List<Collection> collection = null;
     @SerializedName("about")
     @Expose
     private List<About> about = null;

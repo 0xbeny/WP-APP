@@ -18,7 +18,7 @@ import static android.content.ContentValues.TAG;
 public class CatListViewModel extends ViewModel {
 
     CatListUseCase catListUseCase;
-    MutableLiveData<Category> categoriesMutableLiveData = new MutableLiveData<>();
+    MutableLiveData<List<Category>> categoriesMutableLiveData = new MutableLiveData<>();
 //    MutableLiveData<List<Category>> listMutableLiveData=new MutableLiveData<>();
     @Inject
     public CatListViewModel(CatListUseCase catListUseCase) {
@@ -29,11 +29,18 @@ public class CatListViewModel extends ViewModel {
         catListUseCase.getCatName()
         .toObservable()
         .subscribeOn(Schedulers.computation())
-        .observeOn(Schedulers.newThread())
+        .observeOn(AndroidSchedulers.mainThread())
         .subscribe(response-> {
             Log.d(TAG, "getCatName: "+response.size());
+            for (int i=0;i<response.size();i++) {
+                Log.d(TAG, "getCatName: "+response.get(i).getName());
+                categoriesMutableLiveData.setValue(response);
+            }
 
-        },error->{});
+
+        },error->{
+            Log.d(TAG, "getCatName: "+error.getMessage());
+        });
 
     }
 

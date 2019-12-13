@@ -1,4 +1,4 @@
-package com.example.kokabkhanum.remote.entity.models;
+package com.example.kokabkhanum.remote.entity.models.Category;
 
 import java.util.List;
 

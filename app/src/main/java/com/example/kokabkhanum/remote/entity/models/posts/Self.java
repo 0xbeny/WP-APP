@@ -1,9 +1,10 @@
-package com.example.kokabkhanum.remote.entity.models;
+
+package com.example.kokabkhanum.remote.entity.models.posts;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class WpPostType {
+public class Self {
 
     @SerializedName("href")
     @Expose

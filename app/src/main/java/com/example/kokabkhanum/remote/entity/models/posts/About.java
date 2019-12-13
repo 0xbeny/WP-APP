@@ -1,9 +1,11 @@
-package com.example.kokabkhanum.remote.entity.models;
+
+package com.example.kokabkhanum.remote.entity.models.posts;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Self {
+public class About {
+
     @SerializedName("href")
     @Expose
     private String href;
@@ -15,4 +17,5 @@ public class Self {
     public void setHref(String href) {
         this.href = href;
     }
+
 }
